@@ -1,6 +1,7 @@
 import express from 'express';
 import SentMail from '../models/SentMail.js';
 import { verifyToken } from '../middleware/authMiddleware.js';
+import { sendMail } from "../controllers/mailController.js";
 
 const router = express.Router();
 router.post('/send', verifyToken, sendMail);
