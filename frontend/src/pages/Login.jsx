@@ -4,17 +4,21 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm]   = useState({ email: "", password: "" });
+  const [loading, setLoading] = useState(false);          // NEW
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);                                     // start spinner
     try {
-      const res = await axios.post("/auth/login", form);
-      localStorage.setItem("token", res.data.token);
+      const { data } = await axios.post("/auth/login", form);
+      localStorage.setItem("token", data.token);
       navigate("/dashboard");
     } catch (err) {
-      alert(err.response.data.msg || "Login failed");
+      alert(err.response?.data?.msg || "Login failed");
+    } finally {
+      setLoading(false);                                  // stop spinner
     }
   };
 
@@ -22,6 +26,7 @@ const Login = () => {
     <div className="login-container">
       <form onSubmit={handleLogin} className="login-form">
         <h2>Login</h2>
+
         <input
           type="email"
           placeholder="Email"
@@ -29,6 +34,7 @@ const Login = () => {
           onChange={(e) => setForm({ ...form, email: e.target.value })}
           required
         />
+
         <input
           type="password"
           placeholder="Password"
@@ -36,7 +42,10 @@ const Login = () => {
           onChange={(e) => setForm({ ...form, password: e.target.value })}
           required
         />
-        <button type="submit">Login</button>
+
+        <button type="submit" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
+        </button>
       </form>
     </div>
   );
