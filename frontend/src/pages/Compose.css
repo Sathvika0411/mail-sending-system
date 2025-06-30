@@ -1,0 +1,49 @@
+.compose-container {
+  min-height: 100vh;
+  background-color: #f3f6fb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.compose-container h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.compose-form {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.compose-form input,
+.compose-form textarea {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.compose-form textarea {
+  resize: none;
+}
+
+.compose-form button {
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: #5f6fff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.compose-form button:hover {
+  background-color: #4757e6;
+}

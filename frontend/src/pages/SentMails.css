@@ -1,0 +1,39 @@
+.sent-container {
+  padding: 2rem;
+  background-color: #f9faff;
+  min-height: 100vh;
+}
+
+.sent-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.no-mails {
+  color: #888;
+  font-style: italic;
+}
+
+.mail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.mail-card {
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #5f6fff;
+}
+
+.mail-card p {
+  margin: 0.3rem 0;
+}
+
+.mail-message {
+  margin-top: 0.5rem;
+  color: #444;
+}
