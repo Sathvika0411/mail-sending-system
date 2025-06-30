@@ -3,7 +3,7 @@ import SentMail from '../models/SentMail.js';
 import { verifyToken } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
-
+router.post('/send', verifyToken, sendMail);
 router.get('/sent', verifyToken, async (req, res) => {
   try {
     const mails = await SentMail.find({ userId: req.userId }).sort({ date: -1 });
